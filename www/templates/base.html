@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{% block title %}Arkitekt och Milj&ouml; AB - Arkitektkontoret som bryr sig om dig.{% endblock %}</title>
+<meta name="keywords" content="arkitekt,milj&ouml;,design,kalmar,cleas,soft center,ritningar,milj&ouml;v&#228;nlig,materialval,bygg,hus,villa"/>
+<meta name="description" content="Arkitekt och Milj&ouml; i Kalmar"/>
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/superfish.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/text.css"/>
+{% block extracss %}{% endblock %}
+
+<script type="text/javascript">
+<!--
+var theImages = new Array();
+// To add more image files, continue with the
+// pattern below, adding to the array. Rememeber
+// to increment the theImages[x] index!
+
+theImages[0] = '{{ MEDIA_URL }}/images/logo_bad.jpg';
+theImages[1] = '{{ MEDIA_URL }}/images/logo_kyrka.jpg';
+theImages[2] = '{{ MEDIA_URL }}/images/logo_brygga.jpg';
+theImages[3] = '{{ MEDIA_URL }}/images/logo_vagg.jpg';
+theImages[4] = '{{ MEDIA_URL }}/images/logo_oland.jpg';
+theImages[5] = '{{ MEDIA_URL }}/images/logo_angel.jpg';
+theImages[6] = '{{ MEDIA_URL }}/images/logo_utsikt.jpg';
+
+// ======================================
+// do not change anything below this line
+// ======================================
+var preBuffer = new Array()
+for (var i=0,p=theImages.length; i < p; i++){
+   preBuffer[i] = new Image();
+   preBuffer[i].src = theImages[i];
+}
+
+var w = Math.round(Math.random()*(p-1));
+function showImage(){
+document.write('<img src="'+theImages[w]+'">');
+}
+
+//-->
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+<body>
+<table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td height="200" colspan="3" nowrap="nowrap"><script type="text/javascript">
+showImage();
+</script></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="3" valign="top" align="center">
+    <table width="800" border="0" cellpadding="0" cellspacing="0">
+      <tr style="background-color:#ccc">
+        <td width="100">&nbsp;</td>
+        <td align="center" valign="top">
+	  <div align="right">
+          {% load menu_extras %}
+          {% flatpages_to_menu "sf-menu" %}
+        </div></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" valign="bottom">
+
+    <div id="content" style="padding:50px 100px 50px 100px">
+    {% block maincontent %}
+     tomt :(
+    {% endblock %}
+    </div>
+    
+    </td>
+  </tr>
+  <tr>
+    <td width="401" height="5" align="center" valign="bottom">&nbsp;</td>
+    <td width="30" rowspan="3" align="center" valign="middle"><img src="{{ MEDIA_URL }}/images/streck.gif" alt="" width="30" height="91" /></td>
+    <td width="335" height="5" align="center" valign="bottom">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="5" align="center" valign="bottom"><div align="right" class="style8"><strong>Arkitekt &amp; Milj&ouml; AB</strong><br/>
+      Stortorget 34<br/>
+    392 31 Kalmar</div></td>
+    <td height="5" align="center" valign="bottom"><div align="left" class="style8">0480 - 20 500<br/>
+      <span id="email_address">Info_snabela_arkitekt-m.nu</span><br/>
+    www.arkitekt-m.nu</div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>  
+</table>
+
+
+
+<script type="text/javascript" src="{{ MEDIA_URL }}/javascript/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}/javascript/hoverIntent.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}/javascript/superfish.js"></script>
+<script type="text/javascript">
+jQuery(function(){
+    jQuery('#email_address').text(jQuery('#email_address').text().replace('_snabela_','@'));
+    jQuery('ul.sf-menu').superfish();
+});
+</script>
+{% block extrajs %}{% endblock %}
+</body>
+</html>

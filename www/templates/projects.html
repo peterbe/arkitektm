@@ -1,0 +1,45 @@
+{% extends base_template %}
+{% load thumbnail %}
+{% block extracss %}
+<link rel="stylesheet" href="{{ MEDIA_URL }}/css/jquery.lightbox-0.5.css" />
+<style type="text/css">
+.project-photos { float:right; width:350px; background-color:#ccc}
+.project-photos a { margin:4px; }
+</style>
+{% endblock %}
+
+{% block maincontent %}
+
+<div id="projects">
+{% for project in projects %}
+  <div class="project">
+  
+    <div class="project-photos">
+    {% for photo in project.get_photos %}
+      <a href="{{ MEDIA_URL }}/{% thumbnail photo.photo 800x600 %}"
+         title="{{ photo.title }}"
+      ><img src="{{ MEDIA_URL }}/{% thumbnail photo.photo 120x120 %}" border="0" alt="{{ photo.title }}"/></a>
+    {% endfor %}
+    </div>
+    
+    <div class="project-description">
+    <p><strong>{{ project.name }}</strong></p>
+    <p>{{ project.show_description|safe }}</p>
+    </div>
+    <br style="clear:right"/>
+    
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="{{ MEDIA_URL }}/javascript/jquery.lightbox-0.5.min.js"></script>
+<script type="text/javascript">
+jQuery(function() {
+  jQuery('.project-photos a').lightBox({fixedNavigation:true,txtOf:'av',txtImage:'Bild'});
+  ;
+});
+</script>
+{% endblock %}
