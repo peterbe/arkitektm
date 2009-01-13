@@ -51,8 +51,6 @@ MEDIA_URL = ''
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/'
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '%0ah#8b#pd7v2okj_5)*m94845mexu@1i2*sg+dago@j$a1)1n'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -106,3 +104,9 @@ try:
     from settings_local import *
 except ImportError:
     pass
+
+try:
+    HOME, SECRET_KEY
+except NameError:
+    print "Certain variables must be defined in settings_local.py"
+    raise 
