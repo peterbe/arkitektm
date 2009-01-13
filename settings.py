@@ -87,7 +87,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'django_extensions',
     'www',    
     'django.contrib.flatpages',
     'sorl.thumbnail',
@@ -102,3 +101,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 TEMPLATE_STRING_IF_INVALID = ''
+
+try:
+    from settings_local import *
+except ImportError:
+    pass
