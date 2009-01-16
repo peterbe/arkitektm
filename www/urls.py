@@ -5,7 +5,8 @@ from settings import MEDIA_ROOT
 
 urlpatterns = patterns('',
 
-    (r'^/?$', home_page),
+    # this is now a flatpage instead
+    #(r'^/?$', home_page),
                        
     url(r'projects/', projects_page),
                        
