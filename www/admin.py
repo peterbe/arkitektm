@@ -45,7 +45,10 @@ class ProjectPhotoAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if obj.order == 1:
             other_orders = [x.order for x in ProjectPhoto.objects.filter(project=obj.project)]
-            obj.order = max(other_orders) + 1
+            if other_orders:
+                obj.order = max(other_orders) + 1
+            else:
+                obj.order = 1
         obj.save()
     
 admin.site.register(ProjectPhoto, ProjectPhotoAdmin)
