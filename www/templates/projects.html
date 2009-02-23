@@ -16,9 +16,9 @@
   
     <div class="project-photos">
     {% for photo in project.get_photos %}
-      <a href="{{ MEDIA_URL }}/{% thumbnail photo.photo 800x600 %}"
+      <a href="/{% thumbnail photo.photo 800x600 %}"
          title="{{ photo.title }}"
-      ><img src="{{ MEDIA_URL }}/{% thumbnail photo.photo 120x120 %}" border="0" alt="{{ photo.title }}"/></a>
+      ><img src="{% thumbnail photo.photo 120x120 %}" border="0" alt="{{ photo.title }}"/></a>
     {% endfor %}
     </div>
     
