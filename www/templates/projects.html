@@ -16,9 +16,11 @@
   
     <div class="project-photos">
     {% for photo in project.get_photos %}
-      <a href="/{% thumbnail photo.photo 800x600 %}"
+      {% thumbnail photo.photo 800x600 as big %}
+      {% thumbnail photo.photo 120x120 as small %}
+      <a href="/{{ big.relative_url }}"
          title="{{ photo.title }}"
-      ><img src="{% thumbnail photo.photo 120x120 %}" border="0" alt="{{ photo.title }}"/></a>
+      ><img src="/{{ small.relative_url }}" border="0" alt="{{ photo.title }}"/></a>
     {% endfor %}
     </div>
     
