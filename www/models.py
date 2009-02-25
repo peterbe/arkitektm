@@ -175,7 +175,7 @@ class ProjectPhoto(models.Model):
 
     UPLOAD_PATH = 'project_photos'
     
-    project = models.ForeignKey(Project, null=True)
+    project = models.ForeignKey(Project, null=True, blank=True)
     photo = models.ImageField(upload_to=_upload_to)
     title = models.CharField(max_length=200)
     description = models.TextField(default=u'')
