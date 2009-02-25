@@ -86,12 +86,13 @@ def _flatpages(inside='', depth=1):
         this_url = flatpage.url#.replace(inside, '')
         this_depth = len([x for x in this_url.split('/') if x.strip()])
         
-        if this_depth == depth:
+        # the OR part is for any flat page with url='/'
+        if this_depth == depth or (this_depth == 0 and depth == 1):
             url = flatpage.url
             page = dict(url=flatpage.url, 
                         title=_clean_numbered_title(flatpage.title))
             sub_pages = []
-            if depth >= 1:
+            if depth >= 1 and this_depth != 0:
                 sub_pages = _flatpages(inside=this_url, depth=depth+1)
                 
             if not sub_pages:
